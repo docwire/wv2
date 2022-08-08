@@ -794,7 +794,7 @@ S16 PAP::applyPAPSPRM( const U8* ptr, const Style* /*style*/, AbstractOLEStreamR
             // Remove the tabs within the deletion zones
             std::vector<TabDescriptor>::iterator newEnd = rgdxaTab.end();
             for ( U8 i = 0; i < itbdDelMax; ++i )
-                newEnd = std::remove_if ( rgdxaTab.begin(), newEnd, std::bind2nd( InZone(), Zone( myPtr, i, itbdDelMax ) ) );
+                newEnd = std::remove_if ( rgdxaTab.begin(), newEnd, std::bind( InZone(), std::placeholders::_1, Zone( myPtr, i, itbdDelMax ) ) );
             rgdxaTab.erase( newEnd, rgdxaTab.end() ); // really get rid of them
             itbdMac = rgdxaTab.size();
 
@@ -1789,12 +1789,12 @@ S16 TAP::applyTAPSPRM( const U8* ptr, const Style* /*style*/, AbstractOLEStreamR
 			if (rgdxaCenter.size() > 0)
 			{
 				const S16 dxaNew = readS16( ptr ) - ( rgdxaCenter[ 0 ] + dxaGapHalf );
-				std::transform( rgdxaCenter.begin(), rgdxaCenter.end(), rgdxaCenter.begin(), std::bind1st( std::plus<S16>(), dxaNew ) );
+				std::transform( rgdxaCenter.begin(), rgdxaCenter.end(), rgdxaCenter.begin(), std::bind( std::plus<S16>(), dxaNew, std::placeholders::_1 ) );
 			}
 			else
 			{
 				const S16 dxaNew = readS16( ptr ) - dxaGapHalf;
-				std::transform( rgdxaCenter.begin(), rgdxaCenter.end(), rgdxaCenter.begin(), std::bind1st( std::plus<S16>(), dxaNew ) );
+				std::transform( rgdxaCenter.begin(), rgdxaCenter.end(), rgdxaCenter.begin(), std::bind( std::plus<S16>(), dxaNew, std::placeholders::_1 ) );
 			}
             break;
         }
@@ -1964,7 +1964,7 @@ S16 TAP::applyTAPSPRM( const U8* ptr, const Style* /*style*/, AbstractOLEStreamR
 
                 // Adjust all successive items (+= ctc * dxaCol)
                 std::transform( rgdxaCenter.begin() + itcInsert + ctc, rgdxaCenter.end(),
-                                rgdxaCenter.begin() + itcInsert + ctc, std::bind1st( std::plus<S16>(), ctc * dxaCol ) );
+                                rgdxaCenter.begin() + itcInsert + ctc, std::bind( std::plus<S16>(), ctc * dxaCol, std::placeholders::_1 ) );
             }
             break;
         }
@@ -1997,7 +1997,7 @@ S16 TAP::applyTAPSPRM( const U8* ptr, const Style* /*style*/, AbstractOLEStreamR
             // Adjust all the following columns
             ++itcFirst;
             std::transform( rgdxaCenter.begin() + itcFirst, rgdxaCenter.end(),
-                            rgdxaCenter.begin() + itcFirst, std::bind2nd( std::minus<S16>(), shift ) );
+                            rgdxaCenter.begin() + itcFirst, std::bind( std::minus<S16>(), std::placeholders::_1, shift ) );
             break;
         }
         case SPRM::sprmTMerge:
