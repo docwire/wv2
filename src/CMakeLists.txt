@@ -6,6 +6,7 @@ IF( EXISTS ${wvWare_BINARY_DIR}/config.h )
 ENDIF( EXISTS ${wvWare_BINARY_DIR}/config.h )
 
 SET( wv2_SOURCES 
+    olestorage.cpp
 	olestream.cpp 
 	word97_generated.cpp 
 	word97_helper.cpp 
@@ -40,7 +41,8 @@ SET( wv2_SOURCES
 	wvlog.cpp 
     )
 
-SET( wv2_HEADERS  
+SET( wv2_HEADERS 
+    olestorage.h
 	olestream.h 
 	word95_generated.h 
 	word97_generated.h 
