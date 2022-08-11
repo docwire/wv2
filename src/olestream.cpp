@@ -48,3 +48,6 @@ bool OLEStream::pop()
     m_positions.pop();
     return true;
 }
+
+AbstractOLEStreamReader::AbstractOLEStreamReader(AbstractOLEStorage* storage) : OLEStream(storage){}
+AbstractOLEStreamReader::~AbstractOLEStreamReader(){}

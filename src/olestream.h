@@ -82,8 +82,8 @@ private:
 class AbstractOLEStreamReader : public OLEStream
 {
 	public:
-		AbstractOLEStreamReader(AbstractOLEStorage* storage) : OLEStream(storage){}
-		virtual ~AbstractOLEStreamReader(){}
+		AbstractOLEStreamReader(AbstractOLEStorage* storage);
+		virtual ~AbstractOLEStreamReader();
 		virtual bool isValid() const = 0;
         virtual bool seek( int offset, int whence = SEEK_SET ) = 0;
 		virtual int tell() const = 0;
