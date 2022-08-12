@@ -40,8 +40,7 @@ SET( wv2_SOURCES
 	wvlog.cpp 
     )
 
-SET( wv2_HEADERS 
-    olestorage.h
+SET( wv2_HEADERS
 	olestream.h 
 	word95_generated.h 
 	word97_generated.h 
@@ -90,7 +89,7 @@ INSTALL( TARGETS wv2
 
 INSTALL( EXPORT wvWare DESTINATION lib${LIB_SUFFIX}/wvWare FILE wv2.cmake )
 
-INSTALL( FILES ${wv2_HEADERS}
+INSTALL( FILES ${wv2_HEADERS} olestorage.h
   DESTINATION include/wv2
 )
 
