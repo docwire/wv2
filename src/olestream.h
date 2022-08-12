@@ -79,7 +79,7 @@ private:
 	AbstractOLEStorage *m_storage;
 };
 
-class AbstractOLEStreamReader : public OLEStream
+class WV2_DLLEXPORT AbstractOLEStreamReader : public OLEStream
 {
 	public:
 		AbstractOLEStreamReader(AbstractOLEStorage* storage);
