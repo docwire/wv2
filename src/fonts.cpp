@@ -59,7 +59,7 @@ FontCollection::FontCollection( AbstractOLEStreamReader* reader, const Word97::F
 
 FontCollection::~FontCollection()
 {
-    std::for_each( m_fonts.begin(), m_fonts.end(), Delete<Word97::FFN>() );
+    std::for_each( m_fonts.begin(), m_fonts.end(), [](Word97::FFN *font){delete font;});
     delete m_fallbackFont;
 }
 

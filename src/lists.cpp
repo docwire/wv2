@@ -432,7 +432,7 @@ ListData::ListData( S32 lsid, bool fRestartHdn )
 
 ListData::~ListData()
 {
-    std::for_each( m_listLevels.begin(), m_listLevels.end(), Delete<ListLevel>() );
+    std::for_each( m_listLevels.begin(), m_listLevels.end(), [](ListLevel *listLevel){delete listLevel;});
 }
 
 S32 ListData::lsid() const
@@ -553,7 +553,7 @@ ListFormatOverride::ListFormatOverride( S32 lsid )
 
 ListFormatOverride::~ListFormatOverride()
 {
-    std::for_each( m_lfoLevels.begin(), m_lfoLevels.end(), Delete<ListFormatOverrideLVL>() );
+    std::for_each( m_lfoLevels.begin(), m_lfoLevels.end(), [](ListFormatOverrideLVL *list){delete list;});
 }
 
 S32 ListFormatOverride::lsid() const
@@ -702,8 +702,8 @@ ListInfoProvider::ListInfoProvider( AbstractOLEStreamReader* tableStream, const 
 ListInfoProvider::~ListInfoProvider()
 {
     delete m_listNames;
-    std::for_each( m_listFormatOverride.begin(), m_listFormatOverride.end(), Delete<ListFormatOverride>() );
-    std::for_each( m_listData.begin(), m_listData.end(), Delete<ListData>() );
+    std::for_each( m_listFormatOverride.begin(), m_listFormatOverride.end(), [](ListFormatOverride *list){delete list;});
+    std::for_each( m_listData.begin(), m_listData.end(), [](ListData *list){delete list;});
 }
 
 bool ListInfoProvider::isValid( S16 ilfo, U8 nLvlAnm ) const

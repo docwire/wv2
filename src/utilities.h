@@ -20,16 +20,11 @@
 #define UTILITIES_H
 
 #include <algorithm>
-#include <functional> // std::unary_function is in this header with gcc 2.9x
+#include <functional>
 #include <string>
 
 namespace wvWare
 {
-    template<class T> struct Delete : public std::unary_function<T*, void>
-    {
-        void operator() (T* t) const { delete t; }
-    };
-
     std::string int2string( int i );
     std::string uint2string( unsigned int i );
 }
