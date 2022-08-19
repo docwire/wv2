@@ -142,6 +142,7 @@ namespace wvWare
         void parseFootnote( const FootnoteData& data );
         void parseTableRow( const TableRowData& data );
 
+        std::string tableStream() const;
     protected:
         // First all variables which don't change their state during
         // the parsing process. We don't have to save and restore those.
@@ -202,7 +203,6 @@ namespace wvWare
         // ##### TODO
 
         // Private helper methods
-        std::string tableStream() const;
         void init();
         bool readPieceTable();
         void fakePieceTable();
