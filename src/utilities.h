@@ -22,6 +22,7 @@
 #include <algorithm>
 #include <functional>
 #include <string>
+#include "dllmagic.h"
 
 namespace wvWare
 {
