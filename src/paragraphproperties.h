@@ -32,7 +32,7 @@ namespace wvWare
      * we want to pass to the consumer. Right now we have a ListInfo object
      * if the paragraph belongs to some list.
      */
-    class ParagraphProperties : public Shared
+    class WV2_DLLEXPORT ParagraphProperties : public Shared
     {
     public:
         ParagraphProperties();
