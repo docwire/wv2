@@ -45,7 +45,7 @@ namespace wvWare {
    * representation is compatible to XChar2b and QChar. It's therefore
    * possible to exchange data with X and Qt with shallow copies.
    */
-  struct UChar {
+  struct WV2_DLLEXPORT UChar {
     /**
      * Construct a character with value 0.
      */
@@ -115,7 +115,7 @@ namespace wvWare {
    * If that sounds confusing your best bet is to simply forget about the
    * existance of this class and treat is as being identical to @ref UChar.
    */
-  class UCharReference {
+  class WV2_DLLEXPORT UCharReference {
     friend class UString;
     UCharReference(UString *s, unsigned int off) : str(s), offset(off) { }
   public:
@@ -159,7 +159,7 @@ namespace wvWare {
   /**
    * @short 8 bit char based string class
    */
-  class CString {
+  class WV2_DLLEXPORT CString {
   public:
     CString() : data(0L) { }
     explicit CString(const char *c);
@@ -366,9 +366,9 @@ namespace wvWare {
   inline bool operator!=(const UString& s1, const UString& s2) {
     return !wvWare::operator==(s1, s2);
   }
-  bool operator<(const UString& s1, const UString& s2);
-  bool operator==(const UString& s1, const char *s2);
-  inline bool operator!=(const UString& s1, const char *s2) {
+  WV2_DLLEXPORT bool operator<(const UString& s1, const UString& s2);
+  WV2_DLLEXPORT bool operator==(const UString& s1, const char *s2);
+    inline bool operator!=(const UString& s1, const char *s2) {
     return !wvWare::operator==(s1, s2);
   }
   inline bool operator==(const char *s1, const UString& s2) {
@@ -377,11 +377,11 @@ namespace wvWare {
   inline bool operator!=(const char *s1, const UString& s2) {
     return !wvWare::operator==(s1, s2);
   }
-  bool operator==(const CString& s1, const CString& s2);
-  UString operator+(const UString& s1, const UString& s2);
+  WV2_DLLEXPORT bool operator==(const CString& s1, const CString& s2);
+  WV2_DLLEXPORT UString operator+(const UString& s1, const UString& s2);
 
 
-  class UConstString : private UString {
+  class WV2_DLLEXPORT UConstString : private UString {
     public:
       UConstString( UChar* data, unsigned int length );
       ~UConstString();
