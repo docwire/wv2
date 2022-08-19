@@ -25,8 +25,8 @@
 
 namespace wvWare
 {
-    std::string int2string( int i );
-    std::string uint2string( unsigned int i );
+    WV2_DLLEXPORT std::string int2string( int i );
+    WV2_DLLEXPORT std::string uint2string( unsigned int i );
 }
 
 #endif // UTILITIES_H

@@ -1938,7 +1938,7 @@ bool operator!=(const ASUMYI &lhs, const ASUMYI &rhs);
 /**
  * AnnoTation Reference Descriptor (ATRD)
  */
-struct ATRD {
+struct WV2_DLLEXPORT ATRD {
     /**
      * Creates an empty ATRD structure and sets the defaults
      */
@@ -1995,8 +1995,8 @@ struct ATRD {
 
 }; // ATRD
 
-bool operator==(const ATRD &lhs, const ATRD &rhs);
-bool operator!=(const ATRD &lhs, const ATRD &rhs);
+WV2_DLLEXPORT bool operator==(const ATRD &lhs, const ATRD &rhs);
+WV2_DLLEXPORT bool operator!=(const ATRD &lhs, const ATRD &rhs);
 
 
 /**
@@ -6396,7 +6396,7 @@ bool operator!=(const OLST &lhs, const OLST &rhs);
 /**
  * Paragraph Properties (PAP)
  */
-struct PAP : public Shared {
+struct WV2_DLLEXPORT PAP : public Shared {
     /**
      * Creates an empty PAP structure and sets the defaults
      */
@@ -6851,8 +6851,8 @@ struct PAP : public Shared {
 
 }; // PAP
 
-bool operator==(const PAP &lhs, const PAP &rhs);
-bool operator!=(const PAP &lhs, const PAP &rhs);
+WV2_DLLEXPORT bool operator==(const PAP &lhs, const PAP &rhs);
+WV2_DLLEXPORT bool operator!=(const PAP &lhs, const PAP &rhs);
 
 
 /**
