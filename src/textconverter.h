@@ -30,7 +30,7 @@ class UString;
 /**
  * A small tool class to provide a convenient interface to iconv.
  */
-class TextConverter
+class WV2_DLLEXPORT TextConverter
 {
 public:
     /**
