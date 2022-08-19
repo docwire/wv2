@@ -102,7 +102,7 @@ namespace wvWare
      * This class should contain all the common functionality shared
      * among the Word9[5|7] parsers.
      */
-    class Parser9x : public Parser
+    class WV2_DLLEXPORT Parser9x : public Parser
     {
     public:
 		Parser9x( AbstractOLEStorage* storage, AbstractOLEStreamReader* wordDocument, const Word97::FIB& fib );
